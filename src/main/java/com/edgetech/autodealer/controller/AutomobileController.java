@@ -20,4 +20,9 @@ public class AutomobileController {
         return autoService.getAutomobileByMake(make);
     }
 
+    @GetMapping("/auto/makes")
+    public List<String> getMakes() {
+        return autoService.getAllMakes();
+    }
+
 }

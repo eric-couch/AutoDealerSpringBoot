@@ -16,11 +16,13 @@ public class AutomobileService {
         Automobile car2 = new Automobile("1999", "Ford", "Saleen", false, "S-351");
         Automobile car3 = new Automobile("2003", "Ford", "Mustang", false, "Cobra");
         Automobile car4 = new Automobile("2008", "Pontiac", "G8", true, "GT");
+        Automobile car5 = new Automobile("2018", "Chevrolet", "Corvette", true, "Z06");
 
         automobiles.add(car1);
         automobiles.add(car2);
         automobiles.add(car3);
         automobiles.add(car4);
+        automobiles.add(car5);
         automobiles.add(truck1);
     }
 
@@ -32,5 +34,15 @@ public class AutomobileService {
             }
         }
         return autoByMake;
+    }
+
+    public List<String> getAllMakes() {
+        List<String> makes = new ArrayList<>();
+        for (Automobile automobile : automobiles) {
+            if (!(makes.contains(automobile.getMake()))) {
+                makes.add(automobile.getMake());
+            }
+        }
+        return makes;
     }
 }

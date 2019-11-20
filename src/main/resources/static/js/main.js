@@ -42,8 +42,23 @@ function updateCars(d) {
 
 }
 
+function createOptions(d) {
+    let make = document.getElementById("make");
+    d.forEach(function (m) {
+        let o = document.createElement('option');
+        o.value = m;
+        o.innerText = m;
+        make.appendChild(o)
+    })
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     let make = document.getElementById("make");
+
+    let makes = getData('/auto/makes').then(data => createOptions(data));
+    //<option value="Pontiac">Pontiac</option>
+    //<option value="Ford">Ford</option>
+
     make.addEventListener("change", function() {
         let cars = getData('/auto/' + this.value).then(data => updateCars(data));;
 
